@@ -27,12 +27,15 @@ const Game = () => {
     setXisNext(step % 2 === 0);
   };
 
+  // Show moves history
   const renderMoves = () =>
     history.map((_step, move) => {
       const destination = move ? `Go to move #${move}` : 'Go to start';
       return (
         <li key={move}>
-          <button onClick={() => jumpTo(move)}>{destination}</button>
+          <button className='historyBtns' onClick={() => jumpTo(move)}>
+            {destination}
+          </button>
         </li>
       );
     });
@@ -50,7 +53,10 @@ const Game = () => {
         <div className='info-wrapper'>
           <h3>
             {winner ? (
-              <h1 className='ifWinner'>Winner: {winner} </h1>
+              <div className='winner_Container'>
+                <h1 className='ifWinner'>Winner:</h1>
+                <h1 className='winnerText'>{winner} </h1>
+              </div>
             ) : (
               <h3 className='ifPlaying'>Next Player: {xO}</h3>
             )}
