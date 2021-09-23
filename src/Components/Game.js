@@ -22,6 +22,11 @@ const Game = () => {
     setXisNext(!xIsNext);
   };
 
+  const jumpTo = (step) => {
+    setStepNumber(step);
+    setXisNext(step % 2 === 0);
+  };
+
   const renderMoves = () =>
     history.map((_step, move) => {
       const destination = move ? `Go to move #${move}` : 'Go to start';
