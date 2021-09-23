@@ -39,14 +39,23 @@ const Game = () => {
 
   return (
     <>
-      <h1>React Tic Tac Toe (React Hooks)</h1>
-      <Board squares={history[stepNumber]} onClick={handleClick} />
-      <div className='info-wrapper'>
-        <div>
+      <h1 className='title'>React Tic Tac Toe (Hooks)</h1>
+
+      <div className='mainContainer'>
+        <div className='info-wrapper'>
           <h3>History</h3>
           {renderMoves()}
         </div>
-        <h3>{winner ? 'Winner: ' + winner : 'Next Player ' + xO}</h3>
+        <Board squares={history[stepNumber]} onClick={handleClick} />
+        <div className='info-wrapper'>
+          <h3>
+            {winner ? (
+              <h1 className='ifWinner'>Winner: {winner} </h1>
+            ) : (
+              <h3 className='ifPlaying'>Next Player: {xO}</h3>
+            )}
+          </h3>
+        </div>
       </div>
     </>
   );
